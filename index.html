@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Cá Nhân - Nguyễn Thành Đô</title>
+  <style>
+    :root {
+      --primary-color: #1e3a8a;
+       --secondary-color: #e2e8f0; 
+      --text-color: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      position: relative;
+      background: url('banner.jpg') center/cover no-repeat;
+      color: white;
+      padding: 8rem 1rem;
+      text-align: center;
+      animation: fadeInDown 1s ease;
+      background-attachment: fixed;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    header h1,
+    header p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid orange;
+      white-space: nowrap;
+      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+      font-size: 1.2rem;
+      max-width: 100%;
+      margin-top: 1rem;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #3b82f6;
+      padding: 0.5rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: #facc15;
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-item {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-item .content {
+      padding: 1rem;
+    }
+
+    .skill {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-title {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+    }
+
+    .progress {
+      width: 100%;
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 7px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress div {
+      height: 100%;
+      background: linear-gradient(to right, #3b82f6, #2563eb);
+      transition: width 1.5s ease;
+      border-radius: 7px;
+      animation: growBar 2s ease-in-out forwards;
+      box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+    }
+
+    .progress:hover div {
+      filter: brightness(1.2);
+      transform: scaleY(1.1);
+    }
+
+    .progress span {
+      position: absolute;
+      right: 10px;
+      top: -24px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: #3b82f6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #e2e8f0;
+      color: #BA4446;
+      animation: fadeInUp 1s ease;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+ <body>
+  <header>
+    <h1>Portfolio Cá Nhân</h1>
+    <p class="typewriter">Xin chào! Tôi là Nguyễn Thành Đô, sinh viên ngành Thiết kế đồ họa tại Arena-multimedia.</p>
+  </header>
+
+  <nav>
+    <a href="#about">Giới thiệu</a>
+    <a href="#skills">Kỹ năng</a>
+    <a href="#projects">Dự án</a>
+    <a href="#contact">Liên hệ</a>
+  </nav>
+
+  <section id="about">
+    <h2>Giới thiệu bản thân</h2>
+    <p>Tôi là Nguyễn Thành Đô, sinh viên Trường Arena-multimedia.</p>
+    <p>Tôi yêu thích phần mềm AI và Ps mong muốn trở thành một designer chuyên nghiệp.</p>
+    <p>Trong thời gian học, tôi đã tham gia nhiều dự án cá nhân và nhóm nhằm nâng cao kỹ năng thực tế.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Kỹ năng</h2>
+    <div class="skill">
+      <div class="skill-title">
+        <span>Minh họa (AI)</span>
+        <span>90%</span>
+      </div>
+      <div class="progress"><div style="width: 90%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-title">
+        <span>Photoshop (PS)</span>
+        <span>80%</span>
+      </div>
+      <div class="progress"><div style="width: 80%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-title">
+        <span>Thiết kế</span>
+        <span>70%</span>
+      </div>
+      <div class="progress"><div style="width: 70%"></div></div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="project-item">
+      <img src="du-an-1.png" alt="Dự án 1">
+      <div class="content">
+        <h3>Website bán hàng</h3>
+        <p>Thiết kế giao diện và chức năng cơ bản cho một cửa hàng online.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="du-an-2.png" alt="Dự án 2">
+      <div class="content">
+        <h3>Ứng dụng To-Do List</h3>
+        <p>Ứng dụng giúp quản lý công việc cá nhân sử dụng HTML, CSS.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="du-an-3.jpg" alt="Dự án 3">
+      <div class="content">
+        <h3>Trang CV Cá Nhân</h3>
+        <p>Trang CV giới thiệu bản thân và kỹ năng cá nhân.</p>
+      </div>
+    </div>
+    <div class="project-item">
+      <img src="du-an-4.jpg" alt="Dự án 4">
+      <div class="content">
+        <h3>Landing Page Khóa học</h3>
+        <p>Trang giới thiệu một khóa học online, có responsive và CTA.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Liên hệ</h2>
+    <p>Nếu bạn muốn kết nối hoặc hợp tác, hãy liên hệ với tôi qua:</p>
+    <ul>
+      <li>Email: nguyenthanhdo@gmail.com</li>
+      <li>Facebook: fb.com/nguyenthanhdo</li>
+      <li>Điện thoại: 0775007432</li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 THÀNH PHỐ HỒ CHÍ MINH
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+
+</body>
+</html>
+
